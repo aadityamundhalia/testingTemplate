@@ -34,7 +34,7 @@ class WebController extends Controller
         $webs = Web::all();
         return datatables()->of($webs)
                            ->addColumn('action', function ($webs) {
-                             return '<a href="'.$webs->id.'" class="btn btn-xs btn-success" style="width: 70px;"> View</a>'.
+                             return '<a href="webdata/'.$webs->id.'" class="btn btn-xs btn-success" style="width: 70px;"> View</a>'.
                                     ' <a href="#edit-'.$webs->id.'" class="btn btn-xs btn-primary" style="width: 70px;"> Edit</a>'.
                                     ' <a href="#delete-'.$webs->id.'" class="btn btn-xs btn-danger" style="width: 70px;"> Delete</a>';
                            })
