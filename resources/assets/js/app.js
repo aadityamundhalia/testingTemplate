@@ -15,5 +15,24 @@ window.Vue = require('vue');
  */
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        rows: [],
+        count: 0
+    },
+    methods: {
+        addRow: function() {
+            if(this.count < 9)
+            {
+                this.count++
+                var elem = document.createElement('tr');
+                this.rows.push({
+                    additionaltime: 'additionalTime'+this.count
+                });
+            }
+        },
+        removeElement: function(index) {
+            this.rows.splice(index, 1);
+        }
+    }
 });

@@ -9,9 +9,13 @@ use Datatables;
 use App\DataTables\WebTablesDataTable;
 use Maatwebsite\Excel\Writers\LaravelExcelWriter;
 use Maatwebsite\Excel\Classes\LaravelExcelWorksheet;
+use Kris\LaravelFormBuilder\FormBuilderTrait;
+use App\Forms\WebForm;
 
 class WebController extends Controller
 {
+    use FormBuilderTrait;
+    public $successStatus = 200;
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +26,6 @@ class WebController extends Controller
         //$webs = Web::orderBy('created_at', 'desc')->get();
         // load the view and pass the webs
         return View::make('web.index');
-        //return $datatable->with('webs', $webs)->render('web.index');
     }
 
     /**
@@ -35,10 +38,11 @@ class WebController extends Controller
         return datatables()->of($webs)
                            ->addColumn('action', function ($webs) {
                              return '<a href="webdata/'.$webs->id.'" class="btn btn-xs btn-success" style="width: 70px;"> View</a>'.
-                                    ' <a href="#edit-'.$webs->id.'" class="btn btn-xs btn-primary" style="width: 70px;"> Edit</a>'.
-                                    ' <a href="#delete-'.$webs->id.'" class="btn btn-xs btn-danger" style="width: 70px;"> Delete</a>';
+                                    ' <a href="webdata/'.$webs->id.'/edit" class="btn btn-xs btn-primary" style="width: 70px;"> Edit</a>'.
+                                    ' <a href="#" id="delete_'.$webs->id.'" class="btn btn-xs btn-danger" onclick="deleter('.$webs->id.')" style="width: 70px;"> Delete</a>';
                            })
                            ->toJson();
+                           //<a href="#delete-'.$webs->id.'" class="btn btn-xs btn-danger" style="width: 70px;"> Delete</a>
     }
 
     /**
@@ -48,7 +52,11 @@ class WebController extends Controller
      */
     public function create()
     {
-        return View::make('web.create');
+        $form = $this->form(WebForm::class, [
+            'method' => 'POST'
+        ]);
+        return View::make('web.create', compact('form'));
+        //return View::make('web.create');
     }
 
     /**
@@ -61,62 +69,12 @@ class WebController extends Controller
     {
         $this->validate($request,[
             'developer' => 'required|max:255',
-            'date' => 'required|date|before:tomorrow',
-            'client' => 'required|max:255',
-            'jobNumber' => 'required|unique:web|max:255',
-            'timeAllocated' => 'required|between:0,99.99',
-            'timeSpent' => 'required|between:0,99.99',
-            'revisions' => 'integer',
-            'additionalTime' => 'between:0,99.99',
-            'dueDate' => 'required|date',
-            'completedDate' => 'required|date|before:tomorrow',
-            'checkPsd' => 'required',
-            'checkPsdComment' => 'max:255',
-            'checkDesktop' => 'required',
-            'checkDesktopComment' => 'max:255',
-            'checkMobile' => 'required',
-            'checkMobileComment' => 'max:255',
-            'checkHtml' => 'required',
-            'checkHtmlComment' => 'max:255',
-            'checkCss' => 'required',
-            'checkCssComment' => 'max:255',
-            'checkUniqueThankyou' => 'required',
-            'checkUniqueThankyouComment' => 'max:255',
-            'checkNotifyDigi' => 'required',
-            'checkNotifyDigiComment' => 'max:255',
-            'checkCustomizeNotifyEmail' => 'required|max:255',
-            'checkCustomizeNotifyEmailComment' => 'max:255',
+            'projectName' => 'required|max:255',
+            'projectNumber' => 'required|unique:web|max:255',
+            'commencementDate' => 'required|date|before:tomorrow',
         ]);
-
-        $web= new Web;
-        $web->developer = $request->developer;
-        $web->date = $request->date;
-        $web->client = $request->client;
-        $web->jobNumber = $request->jobNumber;
-        $web->timeAllocated = $request->timeAllocated;
-        $web->timeSpent = $request->timeSpent;
-        $web->revisions = $request->revisions;
-        $web->additionalTime = $request->additionalTime;
-        $web->dueDate = $request->dueDate;
-        $web->completedDate = $request->completedDate;
-        $web->checkPsd = $request->checkPsd;
-        $web->checkPsdComment = $request->checkPsdComment;
-        $web->checkDesktop = $request->checkDesktop;
-        $web->checkDesktopComment = $request->checkDesktopComment;
-        $web->checkMobile = $request->checkMobile;
-        $web->checkMobileComment = $request->checkMobileComment;
-        $web->checkHtml = $request->checkHtml;
-        $web->checkHtmlComment = $request->checkHtmlComment;
-        $web->checkCss = $request->checkCss;
-        $web->checkCssComment = $request->checkCssComment;
-        $web->checkUniqueThankyou = $request->checkUniqueThankyou;
-        $web->checkUniqueThankyouComment = $request->checkUniqueThankyouComment;
-        $web->checkNotifyDigi = $request->checkNotifyDigi;
-        $web->checkNotifyDigiComment = $request->checkNotifyDigiComment;
-        $web->checkCustomizeNotifyEmail = $request->checkCustomizeNotifyEmail;
-        $web->checkCustomizeNotifyEmailComment = $request->checkCustomizeNotifyEmailComment;
-        $web->save();
-
+        //return response()->json(['data' => $request->all()], $this->successStatus);
+        Web::create($request->all());
         return redirect('webdata')->with('success', 'Information has been added');
     }
 
@@ -128,8 +86,56 @@ class WebController extends Controller
      */
     public function show($id)
     {
-        $item = Web::find($id);
-        return View::make('web.show')->with('item', $item);
+        $data = Web::find($id);
+        $totalRevesions = 0;
+        $revisions = $data->select(
+                                    'additionalTime',
+                                    'additionalTime1',
+                                    'additionalTime2',
+                                    'additionalTime3',
+                                    'additionalTime4',
+                                    'additionalTime5',
+                                    'additionalTime6',
+                                    'additionalTime7',
+                                    'additionalTime8',
+                                    'additionalTime9'
+                                  )
+                          ->where('id', $id)
+                          ->first();
+        if($revisions->additionalTime != null || $revisions->additionalTime != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime1 != null || $revisions->additionalTime1 != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime2 != null || $revisions->additionalTime2 != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime3 != null || $revisions->additionalTime3 != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime4 != null || $revisions->additionalTime4 != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime5 != null || $revisions->additionalTime5 != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime6 != null || $revisions->additionalTime6 != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime7 != null || $revisions->additionalTime7 != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime8 != null || $revisions->additionalTime8 != 0) {
+            $totalRevesions++;
+        }
+        if($revisions->additionalTime9 != null || $revisions->additionalTime9 != 0) {
+            $totalRevesions++;
+        }
+        $data->totalRevesions = $totalRevesions;
+        //return response()->json(['totalRevesions' => $data], $this->successStatus);
+        $items['data'] = $data;
+        return View::make('web.show')->with('items', $items);
     }
 
     /**
@@ -140,7 +146,7 @@ class WebController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo "edit";
     }
 
     /**
@@ -163,6 +169,9 @@ class WebController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $web = Web::find($id);
+        $web->delete();
+
+        return response()->json(['delete' => $web], $this->successStatus);
     }
 }

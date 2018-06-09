@@ -1,0 +1,13 @@
+@section('pageTitle', 'Web Create')
+@extends('layout.mainlayout')
+@section('content')
+<h2>
+    <center>
+        Web Development Testing Checklist
+    </center>
+</h2>
+<hr>
+<div id="app">
+    {!! form($form) !!}
+</div>
+@endsection

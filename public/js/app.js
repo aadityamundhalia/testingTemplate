@@ -13891,7 +13891,25 @@ window.Vue = __webpack_require__(36);
  */
 Vue.component('example-component', __webpack_require__(39));
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+    data: {
+        rows: [],
+        count: 0
+    },
+    methods: {
+        addRow: function addRow() {
+            if (this.count < 9) {
+                this.count++;
+                var elem = document.createElement('tr');
+                this.rows.push({
+                    additionaltime: 'additionalTime' + this.count
+                });
+            }
+        },
+        removeElement: function removeElement(index) {
+            this.rows.splice(index, 1);
+        }
+    }
 });
 
 /***/ }),

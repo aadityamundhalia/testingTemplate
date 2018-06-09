@@ -14,11 +14,12 @@
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 <!-- App scripts -->
 @stack('scripts')
 <script>
 $(function() {
-    $('#users-table').DataTable({
+    $('#web-table').DataTable({
         processing: true,
         serverSide: true,
         pageLength: 12,
@@ -37,4 +38,36 @@ $(function() {
         ]
     });
 });
+function deleter(id) {
+    //var answer = confirm("Are you sure you want to delete")
+    $.confirm({
+        title: 'Confirm!',
+        content: 'Are you sure want to delete item with id: '+id,
+        buttons: {
+            confirm: function () {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        id: id,
+                        _method: 'DELETE',
+                        _token: "{{ csrf_token() }}",
+                    },
+                    url: "webdata/"+id,
+                    success: function (data) {
+                        $("#delete_" + id).parent().parent().fadeOut("fast");
+                        //$.alert('Item with id: '+id+' has been deleted successfully');
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                        $.alert('An error occured while deleting id: '+id+' please check console log for errors');
+                    }
+                });
+            },
+            cancel: function () {
+                //$.alert('Canceled!');
+            },
+        }
+    });
+}
 </script>

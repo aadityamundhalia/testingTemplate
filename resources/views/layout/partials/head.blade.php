@@ -12,3 +12,5 @@
 
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="{{ URL::asset('css/dashboard.css') }}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">

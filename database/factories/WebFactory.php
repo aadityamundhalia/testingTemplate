@@ -12,6 +12,16 @@ $factory->define(App\Web::class, function (Faker $faker) {
         'timeAllocated' => $faker->randomDigit,
         'timeSpent' => $faker->randomDigit,
         'additionalTime' => $faker->randomDigit,
+        'additionalTime1' => $faker->randomDigit,
+        'additionalTime2' => $faker->randomDigit,
+        'additionalTime3' => $faker->randomDigit,
+        'additionalTime4' => $faker->randomDigit,
+        'additionalTime5' => $faker->randomDigit,
+        'additionalTime6' => $faker->randomDigit,
+        'additionalTime7' => $faker->randomDigit,
+        'additionalTime8' => $faker->randomDigit,
+        'additionalTime9' => $faker->randomDigit,
+
         //seo
         'h1TagsPerPage' => $faker->randomElement($array = array ('yes','no','na')),
         'brokenLinks' => $faker->randomElement($array = array ('yes','no','na')),
@@ -51,10 +61,7 @@ $factory->define(App\Web::class, function (Faker $faker) {
         'faviconComment' => $faker->text,
         'peerReview' => $faker->randomElement($array = array ('yes','no')),
         'peerReviewComment' => $faker->text,
-        //go live
-        'watchful_li' => $faker->numberBetween($min = 1, $max = 100),
-        'pingdom' => $faker->numberBetween($min = 1, $max = 100),
-        'GTM_Tracking' => $faker->numberBetween($min = 1, $max = 100),
+
         //manage feedback
         'planning' => $faker->randomElement($array = array ('excellent','good', 'Improvement Needed')),
         'communication' => $faker->randomElement($array = array ('excellent','good', 'Improvement Needed')),
