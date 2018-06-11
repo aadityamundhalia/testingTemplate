@@ -13,6 +13,7 @@ use Kris\LaravelFormBuilder\FormBuilderTrait;
 use App\Forms\WebForm;
 use Excel;
 use PDF;
+use App\Services\PayUService\Exception;
 
 class WebController extends Controller
 {
@@ -259,6 +260,7 @@ class WebController extends Controller
             'fileName' => 'required',
         ]);
         $select = array();
+        $items = Web::first();
 
         foreach($request->all() as $key => $value)
         {
@@ -267,32 +269,43 @@ class WebController extends Controller
                 array_push($select, $key);
             }
         }
-        if(!empty($select))
+        if($request->operator == 'is')
         {
-            if($request->operator == 'is')
-            {
-                $data = Web::select($select)
+            try {
+                    $data = Web::select($select)
                             ->where($request->field, $request->filterValue)
                             ->get();
 
-                $this->excelGenerator($request->fileName, $data, $request->type);
-            }
-            elseif($request->operator == 'isNot')
-            {
+                    $this->excelGenerator($request->fileName, $data, $request->type);
+              }
+              catch (\Exception $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+              }
+        }
+        elseif($request->operator == 'isNot')
+        {
+            try {
                 $data = Web::select($select)
                             ->where($request->field, '<>', $request->filterValue)
                             ->get();
 
                 $this->excelGenerator($request->fileName, $data, $request->type);
-            }
-            elseif($request->operator == 'none')
-            {
+              }
+              catch (\Exception $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+              }
+        }
+        elseif($request->operator == 'none')
+        {
+            try {
                 $data = Web::select($select)->get();
 
                 $this->excelGenerator($request->fileName, $data, $request->type);
-            }
+              }
+              catch (\Exception $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+              }
         }
-        return 'Maybe Select Some Fields';
     }
 
     public function getPdf(Request $request)

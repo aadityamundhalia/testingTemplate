@@ -3,6 +3,9 @@
 @section('content')
 <h2>Generate File</h2>
 <div id="app">
+    @if (session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
     <p>
         <h3>Select fields to display on sheet</h3>
     </p>
@@ -424,7 +427,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="*" name="*" @if (old('*') != 'on') checked="checked" @endif>
+                        <input type="checkbox" class="custom-control-input" id="*" name="*" @if (old('*') == 'on') checked="checked" @endif>
                         <label class="custom-control-label" for="*"><b>All</b></label>
                     </div>
                 </div>
