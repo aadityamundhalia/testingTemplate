@@ -21,3 +21,6 @@ Route::resources([
 ]);
 
 Route::get('/get_datatable', 'WebController@get_dataTables');
+Route::post('/create_file', 'WebController@createFile');
+Route::post('/pdf', 'WebController@getPdf');
+Route::get('/export', 'WebController@export');

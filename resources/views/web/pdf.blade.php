@@ -1,17 +1,3 @@
-@section('pageTitle', 'Web Record Data')
-@extends('layout.mainlayout')
-@section('content')
-<h2>Web Testing Data</h2>
-<div id="app">
-</div>
-<form method="post" action="{{url('pdf')}}" enctype="multipart/form-data">
-    @csrf
-    <input type="hidden" name="id" value="{{ $item->id }}">
-    <div class="col-md-12">
-            <button type="submit" class="btn btn-dark">Export PDF</button>
-    </div>
-</form>
-<br>
 <table class="table table-bordered">
     <tbody>
             <tr>
@@ -237,4 +223,3 @@
             </tr>
     </tbody>
 </table>
-@endsection

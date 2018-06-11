@@ -63,10 +63,10 @@ $factory->define(App\Web::class, function (Faker $faker) {
         'peerReviewComment' => $faker->text,
 
         //manage feedback
-        'planning' => $faker->randomElement($array = array ('excellent','good', 'Improvement Needed')),
-        'communication' => $faker->randomElement($array = array ('excellent','good', 'Improvement Needed')),
-        'timeframe' => $faker->randomElement($array = array ('excellent','good', 'Improvement Needed')),
-        'testing' => $faker->randomElement($array = array ('excellent','good', 'Improvement Needed')),
-        'quality' => $faker->randomElement($array = array ('excellent','good', 'Improvement Needed')),
+        'planning' => $faker->randomElement($array = array ('excellent','good', 'improvement_needed')),
+        'communication' => $faker->randomElement($array = array ('excellent','good', 'improvement_needed')),
+        'timeframe' => $faker->randomElement($array = array ('excellent','good', 'improvement_needed')),
+        'testing' => $faker->randomElement($array = array ('excellent','good', 'improvement_needed')),
+        'quality' => $faker->randomElement($array = array ('excellent','good', 'improvement_needed')),
     ];
 });

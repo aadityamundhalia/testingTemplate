@@ -75,11 +75,11 @@ class CreateWebTable extends Migration
             $table->longText('peerReviewComment')->nullable();
 
             //Manager Feedback
-            $table->enum('planning', ['excellent', 'good', 'Improvement Needed'])->nullable();
-            $table->enum('communication', ['excellent', 'good', 'Improvement Needed'])->nullable();
-            $table->enum('timeframe', ['excellent', 'good', 'Improvement Needed'])->nullable();
-            $table->enum('testing', ['excellent', 'good', 'Improvement Needed'])->nullable();
-            $table->enum('quality', ['excellent', 'good', 'Improvement Needed'])->nullable();
+            $table->enum('planning', ['excellent', 'good', 'improvement_needed'])->nullable();
+            $table->enum('communication', ['excellent', 'good', 'improvement_needed'])->nullable();
+            $table->enum('timeframe', ['excellent', 'good', 'improvement_needed'])->nullable();
+            $table->enum('testing', ['excellent', 'good', 'improvement_needed'])->nullable();
+            $table->enum('quality', ['excellent', 'good', 'improvement_needed'])->nullable();
             $table->timestamps();
         });
     }

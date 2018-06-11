@@ -289,7 +289,7 @@
                                 <option value="yes" @if (old('socialMediaLinks') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('socialMediaLinks') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="checkMobileComment" value="{{ old('socialMediaLinksComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="socialMediaLinksComment" value="{{ old('socialMediaLinksComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('socialMediaLinks', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('socialMediaLinksComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -308,7 +308,7 @@
                                 <option value="yes" @if (old('contentUpload') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('contentUpload') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="contentUploadComment" value="{{ old('checkHtmlComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="contentUploadComment" value="{{ old('contentUploadComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('contentUpload', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('contentUploadComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -327,7 +327,7 @@
                                 <option value="yes" @if (old('crossBrowserTesing') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('crossBrowserTesing') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="crossBrowserTesingComment" value="{{ old('checkCssComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="crossBrowserTesingComment" value="{{ old('crossBrowserTesingComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('crossBrowserTesing', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('crossBrowserTesingComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -346,7 +346,7 @@
                                 <option value="yes" @if (old('W3C_Validation') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('W3C_Validation') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="W3C_ValidationComment" value="{{ old('checkUniqueThankyouComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="W3C_ValidationComment" value="{{ old('W3C_ValidationComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('W3C_Validation', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('W3C_ValidationComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -365,7 +365,7 @@
                                 <option value="yes" @if (old('review') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('review') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="reviewComment" value="{{ old('checkNotifyDigiComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="reviewComment" value="{{ old('reviewComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('review', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('reviewComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -384,7 +384,7 @@
                                 <option value="yes" @if (old('contactFormSubmission') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('contactFormSubmission') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="contactFormSubmissionComment" value="{{ old('checkCustomizeNotifyEmailComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="contactFormSubmissionComment" value="{{ old('contactFormSubmissionComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('contactFormSubmission', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('contactFormSubmissionComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -403,7 +403,7 @@
                                 <option value="yes" @if (old('formValidation') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('formValidation') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="Comment" value="{{ old('formValidationComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="formValidationComment" value="{{ old('formValidationComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('formValidation', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('formValidationComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -423,7 +423,7 @@
                                 <option value="yes" @if (old('internalLinks') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('internalLinks') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="Comment" value="{{ old('internalLinksComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="internalLinksComment" value="{{ old('internalLinksComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('internalLinks', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('internalLinksComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -443,7 +443,7 @@
                                 <option value="yes" @if (old('captcha') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('captcha') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="Comment" value="{{ old('captchaComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="captchaComment" value="{{ old('captchaComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('captcha', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('captchaComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -463,7 +463,7 @@
                                 <option value="yes" @if (old('favicon') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('favicon') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="Comment" value="{{ old('faviconComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="faviconComment" value="{{ old('faviconComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('favicon', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('faviconComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -483,7 +483,7 @@
                                 <option value="yes" @if (old('peerReview') == 'yes') selected="selected" @endif>Yes</option>
                                 <option value="no" @if (old('peerReview') == 'no') selected="selected" @endif>No</option>
                         </select>
-                        <input type="text" name="Comment" value="{{ old('peerReviewComment') }}" placeholder="Comment" class="form-control">
+                        <input type="text" name="peerReviewComment" value="{{ old('peerReviewComment') }}" placeholder="Comment" class="form-control">
                     </div>
                     {!! $errors->first('peerReview', '<p style="color:red;" class="help-block">:message</p>') !!}
                     {!! $errors->first('peerReviewComment', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -499,15 +499,15 @@
                 </div>
                 <div class="col">
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="planning1" name="planning" class="custom-control-input">
+                            <input type="radio" id="planning1" name="planning" class="custom-control-input" value="excellent" @if (old('planning') == 'excellent') checked="checked" @endif>
                             <label class="custom-control-label" for="planning1">Excellent</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="planning2" name="planning" class="custom-control-input">
+                            <input type="radio" id="planning2" name="planning" class="custom-control-input" value="good" @if (old('planning') == 'good') checked="checked" @endif>
                             <label class="custom-control-label" for="planning2">Good</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="planning3" name="planning" class="custom-control-input">
+                            <input type="radio" id="planning3" name="planning" class="custom-control-input" value="improvement_needed" @if (old('planning') == 'improvement_needed') checked="checked" @endif>
                             <label class="custom-control-label" for="planning3">Improvement Needed</label>
                         </div>
                     {!! $errors->first('planning', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -521,15 +521,15 @@
                 </div>
                 <div class="col">
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="communication1" name="communication" class="custom-control-input">
+                            <input type="radio" id="communication1" name="communication" class="custom-control-input" value="excellent" @if (old('communication') == 'excellent') checked="checked" @endif>
                             <label class="custom-control-label" for="communication1">Excellent</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="communication2" name="communication" class="custom-control-input">
+                            <input type="radio" id="communication2" name="communication" class="custom-control-input" value="good" @if (old('communication') == 'good') checked="checked" @endif>
                             <label class="custom-control-label" for="communication2">Good</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="communication3" name="communication" class="custom-control-input">
+                            <input type="radio" id="communication3" name="communication" class="custom-control-input" value="improvement_needed" @if (old('communication') == 'improvement_needed') checked="checked" @endif>
                             <label class="custom-control-label" for="communication3">Improvement Needed</label>
                         </div>
                     {!! $errors->first('communication', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -543,18 +543,18 @@
                 </div>
                 <div class="col">
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="timeframe1" name="timeframe" class="custom-control-input">
+                            <input type="radio" id="timeframe1" name="timeframe" class="custom-control-input" value="excellent" @if (old('timeframe') == 'excellent') checked="checked" @endif>
                             <label class="custom-control-label" for="timeframe1">Excellent</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="timeframe2" name="timeframe" class="custom-control-input">
+                            <input type="radio" id="timeframe2" name="timeframe" class="custom-control-input" value="good" @if (old('timeframe') == 'good') checked="checked" @endif>
                             <label class="custom-control-label" for="timeframe2">Good</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="timeframe3" name="timeframe" class="custom-control-input">
+                            <input type="radio" id="timeframe3" name="timeframe" class="custom-control-input" value="improvement_needed" @if (old('timeframe') == 'improvement_needed') checked="checked" @endif>
                             <label class="custom-control-label" for="timeframe3">Improvement Needed</label>
                         </div>
-                    {!! $errors->first('communication', '<p style="color:red;" class="help-block">:message</p>') !!}
+                    {!! $errors->first('timeframe', '<p style="color:red;" class="help-block">:message</p>') !!}
                 </div>
             </div>
         </p>
@@ -565,15 +565,15 @@
                 </div>
                 <div class="col">
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="testing1" name="testing" class="custom-control-input">
+                            <input type="radio" id="testing1" name="testing" class="custom-control-input" value="excellent" @if (old('testing') == 'excellent') checked="checked" @endif>
                             <label class="custom-control-label" for="testing1">Excellent</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="testing2" name="testing" class="custom-control-input">
+                            <input type="radio" id="testing2" name="testing" class="custom-control-input" value="good" @if (old('testing') == 'good') checked="checked" @endif>
                             <label class="custom-control-label" for="testing2">Good</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="testing3" name="testing" class="custom-control-input">
+                            <input type="radio" id="testing3" name="testing" class="custom-control-input" value="improvement_needed" @if (old('testing') == 'improvement_needed') checked="checked" @endif>
                             <label class="custom-control-label" for="testing3">Improvement Needed</label>
                         </div>
                     {!! $errors->first('testing', '<p style="color:red;" class="help-block">:message</p>') !!}
@@ -587,15 +587,15 @@
                 </div>
                 <div class="col">
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="quality1" name="quality" class="custom-control-input">
+                            <input type="radio" id="quality1" name="quality" class="custom-control-input" value="excellent" @if (old('quality') == 'excellent') checked="checked" @endif>
                             <label class="custom-control-label" for="quality1">Excellent</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="quality2" name="quality" class="custom-control-input">
+                            <input type="radio" id="quality2" name="quality" class="custom-control-input" value="good" @if (old('quality') == 'good') checked="checked" @endif>
                             <label class="custom-control-label" for="quality2">Good</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="quality3" name="quality" class="custom-control-input">
+                            <input type="radio" id="quality3" name="quality" class="custom-control-input" value="improvement_needed" @if (old('quality') == 'improvement_needed') checked="checked" @endif>
                             <label class="custom-control-label" for="quality3">Improvement Needed</label>
                         </div>
                     {!! $errors->first('quality', '<p style="color:red;" class="help-block">:message</p>') !!}

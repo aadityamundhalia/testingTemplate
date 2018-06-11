@@ -2,12 +2,9 @@
 @extends('layout.mainlayout')
 @section('content')
 <h2>Web Testing Data</h2>
-<button type="button" class="btn btn-dark">Export Excel</button>
-<button type="button" class="btn btn-dark">Export CSV</button>
-<button type="button" class="btn btn-dark">Export PDF</button>
-<button type="button" class="btn btn-dark">Printable</button>
-<br><br>
 <div id="app">
+    <a href="/export" class="btn btn-dark">Export</a>
+    <br><br>
     <div class="table-responsive">
         {{-- $dataTable->table() --}}
         <table class="table thead-dark" id="web-table">
@@ -19,9 +16,10 @@
                 <th scope="col">Project Number</th>
                 <th scope="col">Commencement Date</th>
                 <th scope="col">Competition Date</th>
+                <th scope="col">Total Revesions</th>
                 <th scope="col">created_at</th>
                 <th scope="col">updated_at</th>
-                <th scope="col">action</th>
+                <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
