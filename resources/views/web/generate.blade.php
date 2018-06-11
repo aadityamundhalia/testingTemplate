@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-sm">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="id" name="id"  @if (old('id') == 'on') @if (old('') == 'on') checked="checked" @endif @endif>
+                            <input type="checkbox" class="custom-control-input" id="id" name="id" @if (old('id') == 'on') checked="checked" @endif>
                             <label class="custom-control-label" for="id">Id</label>
                         </div>
                 </div>
@@ -438,19 +438,6 @@
             <h3>Filters</h3>
             <Hr />
             <div class="form-group">
-                <label for="field">Field</label>
-                <select class="form-control" id="field" name="field">
-                        <option selected value="">Choose...</option>
-                        <option value="id">id</option>
-                    @foreach($items->getFillable() as $field)
-                        <option value="{{$field}}">{{$field}}</option>
-                    @endforeach
-                    <option value="created_at ">created_at </option>
-                    <option value="updated_at">updated_at</option>
-                </select>
-                {!! $errors->first('field', '<p style="color:red;" class="help-block">:message</p>') !!}
-            </div>
-            <div class="form-group">
                 <label for="operator">Operator</label>
                 <select class="form-control" id="operator" name="operator">
                     <option selected value="">Choose...</option>
@@ -472,6 +459,19 @@
                     <option value="timeIs" disabled>timeIs</option>
                 </select>
                 {!! $errors->first('operator', '<p style="color:red;" class="help-block">:message</p>') !!}
+            </div>
+            <div class="form-group">
+                <label for="field">Field</label>
+                <select class="form-control" id="field" name="field">
+                        <option selected value="">Choose...</option>
+                        <option value="id">id</option>
+                    @foreach($items->getFillable() as $field)
+                        <option value="{{$field}}">{{$field}}</option>
+                    @endforeach
+                    <option value="created_at ">created_at </option>
+                    <option value="updated_at">updated_at</option>
+                </select>
+                {!! $errors->first('field', '<p style="color:red;" class="help-block">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="filterValue">value</label>

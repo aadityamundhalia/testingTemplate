@@ -292,6 +292,7 @@ class WebController extends Controller
                 $this->excelGenerator($request->fileName, $data, $request->type);
             }
         }
+        return 'Maybe Select Some Fields';
     }
 
     public function getPdf(Request $request)
