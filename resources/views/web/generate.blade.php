@@ -424,7 +424,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="*" name="*" @if (old('*') == 'on') checked="checked" @endif>
+                        <input type="checkbox" class="custom-control-input" id="*" name="*" @if (old('*') != 'on') checked="checked" @endif>
                         <label class="custom-control-label" for="*"><b>All</b></label>
                     </div>
                 </div>
