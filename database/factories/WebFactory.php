@@ -23,16 +23,16 @@ $factory->define(App\Web::class, function (Faker $faker) {
         'additionalTime9' => $faker->randomDigit,
 
         //seo
-        'h1TagsPerPage' => $faker->randomElement($array = array ('yes','no','na')),
-        'brokenLinks' => $faker->randomElement($array = array ('yes','no','na')),
-        'imageOptimisation' => $faker->randomElement($array = array ('yes','no','na')),
-        'insightsOptimisation' => $faker->randomElement($array = array ('yes','no','na')),
-        'phoneNumbers' => $faker->randomElement($array = array ('yes','no','na')),
-        'SEF_URLs' => $faker->randomElement($array = array ('yes','no','na')),
-        'canonical_URLs' => $faker->randomElement($array = array ('yes','no','na')),
-        'custom_404' => $faker->randomElement($array = array ('yes','no','na')),
-        'image_ALT_tags' => $faker->randomElement($array = array ('yes','no','na')),
-        'SEOTransferMatrix' => $faker->randomElement($array = array ('yes','no','na')),
+        'h1TagsPerPage' => $faker->randomElement($array = array ('yes','no')),
+        'brokenLinks' => $faker->randomElement($array = array ('yes','no')),
+        'imageOptimisation' => $faker->randomElement($array = array ('yes','no')),
+        'insightsOptimisation' => $faker->randomElement($array = array ('yes','no')),
+        'phoneNumbers' => $faker->randomElement($array = array ('yes','no')),
+        'SEF_URLs' => $faker->randomElement($array = array ('yes','no')),
+        'canonical_URLs' => $faker->randomElement($array = array ('yes','no')),
+        'custom_404' => $faker->randomElement($array = array ('yes','no')),
+        'image_ALT_tags' => $faker->randomElement($array = array ('yes','no')),
+        'SEOTransferMatrix' => $faker->randomElement($array = array ('yes','no')),
 
         //testing
         'checkUniqueThankyou' => $faker->randomElement($array = array ('yes','no')),

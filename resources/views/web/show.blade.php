@@ -19,7 +19,7 @@
                 <td>{{ $item->id }}</td>
             </tr>
             <tr>
-                <th scope="row">DprojectNameeveloper</th>
+                <th scope="row">Developer</th>
                 <td>{{ $item->developer }}</td>
             </tr>
             <tr>
@@ -60,6 +60,23 @@
                         $item->additionalTime8 +
                         $item->additionalTime9
                     }} <b>(Total Revisions - {{$item->totalRevesions }})</b></td>
+            </tr>
+            <tr>
+                <th scope="row">Summary</th>
+                <td>{{
+                        $item->timeAllocated -
+                        ($item->timeSpent +
+                        $item->additionalTime +
+                        $item->additionalTime1 +
+                        $item->additionalTime2 +
+                        $item->additionalTime3 +
+                        $item->additionalTime4 +
+                        $item->additionalTime5 +
+                        $item->additionalTime6 +
+                        $item->additionalTime7 +
+                        $item->additionalTime8 +
+                        $item->additionalTime9)
+                    }}</td>
             </tr>
             <tr>
                 <th scope="row">Max 1 H1 per page</th>

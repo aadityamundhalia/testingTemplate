@@ -16,7 +16,8 @@
                 <th scope="col">Project Number</th>
                 <th scope="col">Commencement Date</th>
                 <th scope="col">Competition Date</th>
-                <th scope="col">Total Revesions</th>
+                <th scope="col">Total Reveisons</th>
+                <th scope="col">Summary</th>
                 <th scope="col">created_at</th>
                 <th scope="col">updated_at</th>
                 <th scope="col">Actions</th>

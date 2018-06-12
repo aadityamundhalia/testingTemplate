@@ -33,6 +33,7 @@ $(function() {
             {data: 'commencementDate'},
             {data: 'competitionDate'},
             {data: 'totalRevesions'},
+            {data: 'summary'},
             {data: 'created_at'},
             {data: 'updated_at'},
             {data: 'action'},

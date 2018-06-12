@@ -43,6 +43,8 @@ class WebController extends Controller
         {
             $totalRevesions = 0;
             $revisions = $web->select(
+                                        'timeAllocated',
+                                        'timeSpent',
                                         'additionalTime',
                                         'additionalTime1',
                                         'additionalTime2',
@@ -87,6 +89,19 @@ class WebController extends Controller
                 $totalRevesions++;
             }
             $web->totalRevesions = $totalRevesions;
+            $summary = $revisions->timeAllocated-
+                       ($revisions->additionalTime+
+                       $revisions->additionalTime1+
+                       $revisions->additionalTime2+
+                       $revisions->additionalTime3+
+                       $revisions->additionalTime4+
+                       $revisions->additionalTime5+
+                       $revisions->additionalTime6+
+                       $revisions->additionalTime7+
+                       $revisions->additionalTime8+
+                       $revisions->additionalTime9+
+                       $revisions->timeSpent);
+            $web->summary = $summary;
             $webs[] = $web;
         }
         //return response()->json(['data' => $webs], $this->successStatus);

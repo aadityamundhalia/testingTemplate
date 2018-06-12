@@ -9,6 +9,12 @@ class Web extends Model
     protected $table = 'web';
     //protected $guarded = 'id';
     public $timestamps = true;
+    protected $casts = [
+        'commencementDate'  => 'date:m-d-Y',
+        'competitionDate' => 'datetime:m-d-Y',
+        'created_at' => 'datetime:m-d-Y H:m:s',
+        'updated_at' => 'datetime:m-d-Y H:m:s',
+    ];
     protected $fillable = [
                             'developer' ,
                             'projectName' ,
